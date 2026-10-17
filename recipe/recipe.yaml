@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: ismip7-interpolation
-  version: "0.1.0"
+  version: "0.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/ismip/ismip7-interpolation/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 4b76e2082f780989cdc215d3d820ecfc63df1b5f7e6c77fc3a68e2476135741e
+  sha256: 7cb83cbc510e62f3f6a96422b8e7218db472ecd1b29ecccd079301b345cd6cfe
 
 build:
   number: 0
@@ -26,16 +26,16 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - setuptools >=77
     - pip
+    - setuptools >=77
   run:
     - python >=${{ python_min }},<3.15
-    # CDO does all of the remapping; it is called as an executable
-    - cdo >=2.2
-    - netcdf4 >=1.7,<2
-    - isschecker >=0.2,<1
     # Indicate that we don't support Windows
     - __unix
+    - netcdf4 >=1.7,<2
+    - isschecker >=0.2,<1
+    # CDO does all of the remapping; it is called as an executable
+    - cdo >=2.2
 
 tests:
   - python:
