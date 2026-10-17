@@ -26,16 +26,16 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - setuptools >=77
     - pip
+    - setuptools >=77
   run:
     - python >=${{ python_min }},<3.15
-    # CDO does all of the remapping; it is called as an executable
-    - cdo >=2.2
-    - netcdf4 >=1.7,<2
-    - isschecker >=0.2,<1
     # Indicate that we don't support Windows
     - __unix
+    - netcdf4 >=1.7,<2
+    - isschecker >=0.2,<1
+    # CDO does all of the remapping; it is called as an executable
+    - cdo >=2.2
 
 tests:
   - python:
